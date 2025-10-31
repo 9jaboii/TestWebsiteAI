@@ -98,24 +98,30 @@
   <!-- Your app logic -->
   <script src="app.js" defer></script>
 
-  <!-- Amazon Lex Web UI loader (your snippet) -->
-  <script src="https://d2pve3rmgcuvbr.cloudfront.net/lex-web-ui-loader.min.js"></script>
+  <!-- Amazon Lex Web UI - Floating Chat Button -->
+  <script src="https://d23fh956drwxtr.cloudfront.net/lex-web-ui-loader.min.js"></script>
   <script>
-    // IMPORTANT:
-    // - baseUrl must point to YOUR Lex Web UI CloudFront distribution (the one hosting the assets).
-    // - If you’ve customized config (bot, region, Cognito, etc.), include in chatbotUiConfig below.
     (function () {
       var loaderOpts = {
-        baseUrl: 'https://d2pve3rmgcuvbr.cloudfront.net/', // <-- keep your domain here
+        baseUrl: 'https://d23fh956drwxtr.cloudfront.net/',
         shouldLoadMinDeps: true
       };
+
       var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
 
-      // Minimal config; extend as needed (region, Cognito, identity pool, etc.)
       var chatbotUiConfig = {
-        // Example: set initial session attributes if desired
-        // lex: { sessionAttributes: { userAgent: navigator.userAgent } },
-        // ui: { parentOrigin: window.location.origin } // optional hardening
+        cognito: {
+          poolId: 'us-east-1:0977a168-3eb4-4736-9368-fab3af36dd42'
+        },
+        ui: {
+          parentOrigin: window.location.origin,
+          toolbarTitle: 'AAPL Reports Assistant',
+          initialText: 'Hi! Ask me anything about Apple financial reports.',
+          minButtonContent: '💬'
+        },
+        iframe: {
+          iframeOrigin: window.location.origin
+        }
       };
 
       loader.load(chatbotUiConfig).catch(function (error) {
