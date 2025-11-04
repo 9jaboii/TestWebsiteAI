@@ -36,8 +36,11 @@
     #file-data{display:none}
     /* Optional: keep our content above the Lex widget if needed */
     .layer-raise{position:relative;z-index:1}
-    /* Optional: you can tweak Lex widget z-index if overlapping issues occur */
-    /* .lex-web-ui{z-index:1000 !important;} */
+    /* Position Lex widget to the left corner */
+    #lex-web-ui-iframe {
+      left: 20px !important;
+      right: auto !important;
+    }
   </style>
 </head>
 <body>
@@ -118,8 +121,7 @@
           parentOrigin: window.location.origin,
           toolbarTitle: 'AAPL Reports Assistant',
           initialText: 'Hi! Ask me anything about Apple financial reports.',
-          minButtonContent: '💬',
-          positionLeft: true  // Position Lex widget on the left side
+          minButtonContent: '💬'
         },
         iframe: {
           iframeOrigin: 'https://d23fh956drwxtr.cloudfront.net'
