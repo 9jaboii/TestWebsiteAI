@@ -131,5 +131,14 @@
     })();
   </script>
 
+  <!-- AI Squared DataApp chatbot widget -->
+  <script src="https://api.squared.ai/enterprise/api/v1/data_apps_runner.js"></script>
+  <script>
+    if (window.DataApp) {
+      const dataApp = new window.DataApp({ dataAppId: '347', dataAppUseCaseId: 'hNmyd95NPw_wAAZK6By9' });
+      dataApp.runDataApp();
+    }
+  </script>
+
 </body>
 </html>
